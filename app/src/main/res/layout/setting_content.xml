@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/divider_vertical"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_fragment_height">
+
+            <fragment
+                android:id="@+id/setting_fragment"
+                android:name="com.duan.musicoco.setting.SettingFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/setting_clear_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_default_margin_2x"
+            android:layout_marginTop="@dimen/activity_default_margin"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="@dimen/activity_default_margin"
+            android:text="@string/setting_set_image_clear_cache"
+            android:textSize="@dimen/text_middle_s" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
