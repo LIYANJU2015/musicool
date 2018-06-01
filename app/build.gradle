@@ -11,11 +11,36 @@ android {
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "android.support.double_number_picker.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("musicool.jks")
+            storePassword "!@c2018"
+            keyAlias "musicdownload"
+            keyPassword "!@c2018"
+        }
+    }
+
     buildTypes {
+
         release {
             minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            multiDexEnabled true
+            debuggable true
+            applicationIdSuffix ".wedebug"
         }
     }
 }
