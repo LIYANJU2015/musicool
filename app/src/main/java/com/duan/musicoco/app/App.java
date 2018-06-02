@@ -20,6 +20,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         checkAutoThemeSwitch();
+
         CrashReport.initCrashReport(getApplicationContext());
         FBAdUtils.init(this);
     }
