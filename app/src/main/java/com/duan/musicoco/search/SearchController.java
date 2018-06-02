@@ -213,6 +213,10 @@ public class SearchController implements ThemeChangeable, ResultsAdapter.OnItemC
             String arts = i.getArtist();
             String album = i.getAlbum();
 
+            if (name == null || arts == null || album == null) {
+                continue;
+            }
+
             if (name.contains(keyWord) || arts.contains(keyWord) || album.contains(keyWord)) {
                 data.add(i);
             }

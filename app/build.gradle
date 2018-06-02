@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.duan.musicoco"
+        applicationId "com.tubeandmusic.musicoco.first"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
@@ -26,15 +26,10 @@ android {
 
     signingConfigs {
         release {
-//            storeFile file("musicool.jks")
-//            storePassword "!@c19901111"
-//            keyAlias "mymusic"
-//            keyPassword "!@c19901111"
-
             storeFile file("musicool.jks")
-            storePassword "!@c2018"
-            keyAlias "musicdownload"
-            keyPassword "!@c2018"
+            storePassword "!@c19901111"
+            keyAlias "mymusic"
+            keyPassword "!@c19901111"
         }
     }
 
