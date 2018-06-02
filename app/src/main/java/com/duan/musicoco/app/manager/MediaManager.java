@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.duan.musicoco.aidl.Song;
 import com.duan.musicoco.modle.SongInfo;
@@ -80,6 +81,9 @@ public class MediaManager {
 
     //根据专辑 id 获得专辑图片保存路径
     private String getAlbumArtPicPath(Context context, String albumId) {
+        if (TextUtils.isEmpty(albumId)) {
+            return "";
+        }
         String[] projection = {MediaStore.Audio.Albums.ALBUM_ART};
         String imagePath = null;
         Cursor cur = context.getContentResolver().query(Uri.parse("content://media" +

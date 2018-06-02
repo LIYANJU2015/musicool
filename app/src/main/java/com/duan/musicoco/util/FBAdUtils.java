@@ -3,6 +3,7 @@ package com.duan.musicoco.util;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.Display;
 
 import com.facebook.ads.Ad;
@@ -28,6 +29,7 @@ public class FBAdUtils {
     }
 
     public static void interstitialLoad(String aid, final FBInterstitialAdListener listener) {
+        Log.v("FAB", "interstitialLoad >>");
         sInterstitialAd = new InterstitialAd(sContext, aid);
         sInterstitialAd.setAdListener(new InterstitialAdListener() {
             @Override
@@ -82,8 +84,10 @@ public class FBAdUtils {
 
     public static void showInterstitial() {
         try {
+            Log.v("fab", "showInterstitial111");
             if (sInterstitialAd != null && sInterstitialAd.isAdLoaded() && isScreenOn()) {
                 sInterstitialAd.show();
+                Log.v("fab", "showInterstitial222");
             }
         } catch (Throwable e) {
             e.printStackTrace();
@@ -148,7 +152,7 @@ public class FBAdUtils {
 
         @Override
         public void onError(Ad ad, AdError adError) {
-
+            Log.v("fbad", "onError " + adError);
         }
 
         @Override

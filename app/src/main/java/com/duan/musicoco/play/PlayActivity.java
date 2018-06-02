@@ -70,13 +70,6 @@ public class PlayActivity extends InspectActivity implements
         //权限检查完成后回调 permissionGranted 或 permissionDenied
         checkPermission();
 
-        FBAdUtils.interstitialLoad(FBAdUtils.CHA_YE, new FBAdUtils.FBInterstitialAdListener(){
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                super.onInterstitialDismissed(ad);
-                FBAdUtils.destoryInterstitial();
-            }
-        });
         Log.v("palyer", "PlayActivity oncreate");
     }
 
@@ -215,11 +208,6 @@ public class PlayActivity extends InspectActivity implements
         super.onDestroy();
         unbindService();
         unregisterReceiver();
-
-        if (FBAdUtils.isInterstitialLoaded()) {
-            FBAdUtils.showInterstitial();
-        }
-        FBAdUtils.destoryInterstitial();
     }
 
     private void unbindService() {
@@ -246,6 +234,11 @@ public class PlayActivity extends InspectActivity implements
         savePreference();
         visualizerFragment.stopSpin();
         viewsController.stopProgressUpdateTask();
+
+        if (FBAdUtils.isInterstitialLoaded()) {
+            FBAdUtils.showInterstitial();
+        }
+        FBAdUtils.destoryInterstitial();
     }
 
     private void savePreference() {
@@ -282,7 +275,16 @@ public class PlayActivity extends InspectActivity implements
             updateCurrentSongInfo(null, true);
             updateViewsColorsIfNeed(null);
         }
+
+        FBAdUtils.interstitialLoad(FBAdUtils.CHA_YE, new FBAdUtils.FBInterstitialAdListener(){
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                super.onInterstitialDismissed(ad);
+                FBAdUtils.destoryInterstitial();
+            }
+        });
     }
+
 
     /**
      * 同步当前播放歌曲信息，状态
