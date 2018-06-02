@@ -20,6 +20,11 @@ android {
 
     signingConfigs {
         release {
+//            storeFile file("musicool.jks")
+//            storePassword "!@c19901111"
+//            keyAlias "mymusic"
+//            keyPassword "!@c19901111"
+
             storeFile file("musicool.jks")
             storePassword "!@c2018"
             keyAlias "musicdownload"
@@ -43,6 +48,14 @@ android {
             applicationIdSuffix ".wedebug"
         }
     }
+
+
+}
+
+repositories{
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
@@ -50,6 +63,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     compile 'com.android.support.constraint:constraint-layout:1.1.0'
     compile 'com.android.support:palette-v7:27.1.1'
     compile 'com.android.support:appcompat-v7:27.1.1'
@@ -63,11 +77,12 @@ dependencies {
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
     compile 'com.android.support:support-vector-drawable:27.1.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.tencent.bugly:crashreport:2.6.6'
+    compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.facebook.android:audience-network-sdk:4.28.2'
     compile 'com.facebook.android:facebook-android-sdk:4.33.0'
 
     compile 'com.android.support:multidex:1.0.1'
+
 }
 repositories {
     mavenCentral()
