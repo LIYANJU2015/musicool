@@ -63,8 +63,8 @@ dependencies {
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
     compile 'com.android.support:support-vector-drawable:27.1.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.tencent.bugly:crashreport:latest.release'
-    compile 'com.facebook.android:audience-network-sdk:4.+'
+    compile 'com.tencent.bugly:crashreport:2.6.6'
+    compile 'com.facebook.android:audience-network-sdk:4.28.2'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 
     compile 'com.android.support:multidex:1.0.1'
